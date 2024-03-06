@@ -1,0 +1,827 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
+\usepackage{array}     % Required for the 'p' column specifier
+\title{
+{\includegraphics[width=4.5cm, height=4cm]{logo.png}
+}
+\\
+{Software requirement specification document for Advanced Software(CSE232) project}
+}
+
+
+
+\author{Aley Amin\\Mazen Sameh\\Hassan Walid\\Seif Elden\\\\ Supervised by: Dr. Ayman Ezzat, Eng. Raghda Ali\\\\}
+
+
+\begin{document}
+
+\maketitle
+\newpage
+\section{Introduction}
+\subsection{Purpose of this document}
+This Software Requirements Specification (SRS) is a guide for building a website for a charity orgnization named Basmah. It outlines what the website needs to do and how it should work. This helps everyone involved in the project stay on the same page and makes sure the website meets the charity’s needs.
+\subsection{ Scope of this document}
+The project aims to establish Basmah's online presence, facilitate secure online donations, disseminate information about its initiatives, and enhance user engagement. Key stakeholders include the charity organization, donors, web developers, and system engineers. Constraints encompass predefined schedules, budget limitations, adherence to software engineering standards, and regulatory compliance. This document serves as a comprehensive guide to align project participants, ensuring a shared understanding of objectives and requirements, subject to periodic review for updates.
+\subsection{Overview}
+The product defined as a result of the outlined vision and mission is a comprehensive educational and ethical development program aimed at children. This program seeks to address the challenges of corruption and the lack of education, fostering a new generation with a strong moral compass and a deep sense of responsibility towards their community. 
+\subsection{ Business Context}
+The program is designed to provide children with the necessary tools to overcome the barriers imposed by corruption and incomplete education, enabling them to pursue their dreams with confidence and determination. It includes elements such as mentorship, skill development, and character-building activities to shape well-rounded individuals.elicitation process.
+
+
+
+
+\section{General Description}
+\subsection{Product Functions}
+the product should let a user apply for one of the 4 different paths provided, book appointment for an interview, and donate for his desired path, choose the type of donation, register an account, sing in to an account.
+It should let the admin add a user, delete a user, add an admin, view all users, confirm appointments, view all appointments.
+\subsection{Similar System Information}
+The system would in concept be similar to any other charitable organization\\ eg:- resala but smaller in size compared to them as the system will be tailored for the needs of Basmah.
+\subsection{ User Characteristics}
+The system's intended users are all people interested in donating to a charitable cause. Users need the most basic knowledge in using a website application. 
+\subsection{ User Problem Statement}
+The Basmah charity organization currently faces challenges in effectively reaching out to potential supporters, donors, and individuals interested in participating in their educational and ethical development program. The existing methods of communication may be limited, hindering the organization's ability to attract a diverse audience and garner support. Additionally, the lack of an online platform for applications, appointment bookings, and donations poses a barrier to efficient and secure engagement with users.
+\subsection{ User Objectives}
+1.User Engagement: Enable users to easily navigate the website, understand Basmah's mission, and engage with the educational and ethical development program.\\
+2.Application Process: Simplify the application process for users to apply for one of the four different paths offered by Basmah's program.\\
+3.Appointment Booking: Provide a seamless system for users to schedule appointments for interviews related to their chosen paths.\\
+4.Secure Donations: Facilitate secure online donation mechanisms, allowing users to contribute funds to support their desired paths within the program 
+
+
+\newpage
+
+\section{Functional Requirements}
+
+\newpage
+
+
+\begin{table}[h!]
+\caption{Restrict User Personal Info Access Function Description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & restrictUserPersonalInfoAccess \\ \hline
+\textbf{Description}        & The function restrictUserPersonalInfoAccess is designed to enhance user privacy and security within a system. Its primary purpose is to control and limit access to sensitive personal information, the function checks the user's access level, each level is able to view certain information. \\ \hline
+\textbf{Inputs}             & User credentials (AccessLevel). \\ \hline
+\textbf{Source}             & User try to access another user information. \\ \hline
+\textbf{Outputs}            & Alert message. \\ \hline
+\textbf{Destination}        & User interface. \\ \hline
+\textbf{Action}             & Verify user credentials against stored data. \\ \hline
+\textbf{Requirements}       & Multiple access levels, Each user must have only one level. \\ \hline
+\textbf{Criticality}        & Essential for system security and data integrity. \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & User authentication failures, potential security breaches. \\ \hline
+\textbf{Pre-Condition}      & Low level user attempting to access high level information. \\ \hline
+\textbf{Post-Condition}     & User granted access or denied with appropriate feedback. \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+
+\begin{table}[h!]
+\caption{Alert System Failure Function Description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & AlertSystemFailure \\ \hline
+\textbf{Description}        & This function is a way for the system to achieve availability. the function is called upon failure of the website to respond, a message is then sent to the system admins to alert them about this failure, and a message to users. \\ \hline
+\textbf{Inputs}             & System failure (responseError). \\ \hline
+\textbf{Source}             & System is unresponsive. \\ \hline
+\textbf{Outputs}            & Alert message. \\ \hline
+\textbf{Destination}        & Admin contact. \\ \hline
+\textbf{Action}             & Alert admins of system failure, and inform users of downtime. \\ \hline
+\textbf{Requirements}       & Tracking system response. \\ \hline
+\textbf{Criticality}        & Essential for system availability. \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & Response tracking failure, failure to send message to admins. \\ \hline
+\textbf{Pre-Condition}      & System response failure. \\ \hline
+\textbf{Post-Condition}     & Alert message to admins and downtime message \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+
+
+\begin{table}[h!]
+\caption{List  all donation causes Function description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & ListDonationCauses \\ \hline
+\textbf{Description}        & The function shows all the available causes of donation. It exists at the Donations page. the causes listed are (Janeen, Bareeq, Elaf, Marsah)\\ \hline
+\textbf{Inputs}             & Event Listener for Donations button \\ \hline
+\textbf{Source}             & User presses on donate button. \\ \hline
+\textbf{Outputs}            & View donation causes \\ \hline
+\textbf{Destination}        & User interface. \\ \hline
+\textbf{Action}             & Open Donations page \\ \hline
+\textbf{Requirements}       & None \\ \hline
+\textbf{Criticality}        & High \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & failure to open donations page \\ \hline
+\textbf{Pre-Condition}      & user at home page. \\ \hline
+\textbf{Post-Condition}     & User at Donations page. \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+\begin{table}[h!]
+\caption{Select donation cause Function description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & selectDonationCause \\ \hline
+\textbf{Description}        & The function takes the choice of the user on which cause he wants to donate to and sends them to the donation types section.\\ \hline
+\textbf{Inputs}             & Event Listener for Donation cause button \\ \hline
+\textbf{Source}             & User presses on one of the donation cause buttons. \\ \hline
+\textbf{Outputs}            & View donation types section \\ \hline
+\textbf{Destination}        & User interface. \\ \hline
+\textbf{Action}             & Open donation types section \\ \hline
+\textbf{Requirements}       & None \\ \hline
+\textbf{Criticality}        & High \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & failure to open donation types section \\ \hline
+\textbf{Pre-Condition}      & user at donations page. \\ \hline
+\textbf{Post-Condition}     & user at donation types section section. \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+
+\begin{table}[h!]
+\caption{List  all donation types Function description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & ListDonationTypes \\ \hline
+\textbf{Description}        & The function shows all the available types of donation. It exists at the Donations page. The types of donations are (money, clothes, food)\\ \hline
+\textbf{Inputs}             & Event Listener for Donations button \\ \hline
+\textbf{Source}             & User presses on donate button. \\ \hline
+\textbf{Outputs}            & View donation type \\ \hline
+\textbf{Destination}        & User interface. \\ \hline
+\textbf{Action}             & Open Donations page \\ \hline
+\textbf{Requirements}       & None \\ \hline
+\textbf{Criticality}        & High \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & failure to open donations page \\ \hline
+\textbf{Pre-Condition}      & user at home page. \\ \hline
+\textbf{Post-Condition}     & User at Donations page. \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+\begin{table}[h!]
+\caption{Select donation type Function description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & selectDonationType \\ \hline
+\textbf{Description}        & The function takes the choice of the user on what he wants to donate. if it is money, send them to the payment section.\\ \hline
+\textbf{Inputs}             & Event Listener for Donation type button \\ \hline
+\textbf{Source}             & User presses on one of the donation type buttons. \\ \hline
+\textbf{Outputs}            & View payment section or send email to admin about type of donation \\ \hline
+\textbf{Destination}        & User interface. \\ \hline
+\textbf{Action}             & Open payment section if the chosen type of donation is money. if the type of donation is something else then an email is sent to the admin informing them that a person is donating a physical thing. \\ \hline
+\textbf{Requirements}       & None \\ \hline
+\textbf{Criticality}        & High \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & failure to open payment section, failure to send email \\ \hline
+\textbf{Pre-Condition}      & user at donations page. \\ \hline
+\textbf{Post-Condition}     & appearance of payment section. \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+\begin{table}[h!]
+\caption{System Calculates Money Function Description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & calcualateTotalDonations \\ \hline
+\textbf{Description}        & The function calcualateTotalDonations takes the donation cause and amount to be donated ,and calculates the total. It will display the totals in the payment page.  \\ \hline
+\textbf{Inputs}             & Donation Information (DonationCause , Donation amount). \\ \hline
+\textbf{Source}             & User donates money through the payment section. \\ \hline
+\textbf{Outputs}            & Total amount of money donated \\ \hline
+\textbf{Destination}        & User interface. \\ \hline
+\textbf{Action}             & Calculate the total amount of money donated till last transaction. \\ \hline
+\textbf{Requirements}       & None  \\ \hline
+\textbf{Criticality}        & High. \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & Wrong amount calculated . \\ \hline
+\textbf{Pre-Condition}      & User chooses donation cause and amount they want to donate. \\ \hline
+\textbf{Post-Condition}     & Calculated amount is displayed. \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+
+\begin{table}[h!]
+\caption{List Payment Method Function Description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & listPaymentMethod \\ \hline
+\textbf{Description}        & The function listPaymentMethod shows the different payment methods. \\ \hline
+\textbf{Inputs}             & Event Listener for method button. \\ \hline
+\textbf{Source}             & User presses on payment methods button. \\ \hline
+\textbf{Outputs}            & List of payment methods. \\ \hline
+\textbf{Destination}        & User interface. \\ \hline
+\textbf{Action}             & Display all available payment methodes \\ \hline
+\textbf{Requirements}       & amount of total donations is not smaller than 10L.E \\ \hline
+\textbf{Criticality}        & High \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & No payment method is available \\ \hline
+\textbf{Pre-Condition}      & payment section without list of payment methods \\ \hline
+\textbf{Post-Condition}     & appearance of payment methods. \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+\begin{table}[h!]
+\caption{Choose Payment Method Function Description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & choosePaymentMethod \\ \hline
+\textbf{Description}        & The function choosePaymentMethod takes the payment method chosen by the user. \\ \hline
+\textbf{Inputs}             & Event Listener for methodType button, donation amount \\ \hline
+\textbf{Source}             & User presses on a method button. \\ \hline
+\textbf{Outputs}            & payment information dialog. \\ \hline
+\textbf{Destination}        & User interface. \\ \hline
+\textbf{Action}             & Display a dialog to display the instapay address, bank and account for the instapay method. Display dialog with vodafone cash payment information for the vodaphone cash method. Display a dialog to enter card information for the Card method.\\ \hline
+\textbf{Requirements}       & Service for the chosen payment method is available \\ \hline
+\textbf{Criticality}        & High \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & No payment method is available \\ \hline
+\textbf{Pre-Condition}      & Donation amount entered \\ \hline
+\textbf{Post-Condition}     & appearance of the dialog \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+
+\begin{table}[h!]
+\caption{Confirm Payment Function Description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & confirmPayment \\ \hline
+\textbf{Description}        & The function confirmPaymen displays a popup for the user to confirm the amount of money donated. \\ \hline
+\textbf{Inputs}             & Event Listener for Confirmation button \\ \hline
+\textbf{Source}             & user enters card information and presses the confirmation button \\ \hline
+\textbf{Outputs}            & popup alerting the success of the transaction. \\ \hline
+\textbf{Destination}        & User interface. \\ \hline
+\textbf{Action}             & the user enters his card information which is followed by a popup asking for the confirmation of the user to this transaction. upon pressing the confirmation button a new popup appears alerting of the success or failure of the transaction\\ \hline
+\textbf{Requirements}       & card information is entered \\ \hline
+\textbf{Criticality}        & High \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & wrong card information, failure of transaction, popup does not appear \\ \hline
+\textbf{Pre-Condition}      & payment information dialog \\ \hline
+\textbf{Post-Condition}     & success or failure of transaction \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+
+
+\begin{table}[h!]
+\caption{List Available volunteering paths Function description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & ListPaths \\ \hline
+\textbf{Description}        & This function shows the user the different paths offered for volunteering by Basmah.
+. \\ \hline
+\textbf{Inputs}             & Event Listener for ViewPaths button \\ \hline
+\textbf{Source}             & User presses on view paths button. \\ \hline
+\textbf{Outputs}            & View Paths Page. \\ \hline
+\textbf{Destination}        & User interface. \\ \hline
+\textbf{Action}             & Open view paths page \\ \hline
+\textbf{Requirements}       & existence of volunteering paths. \\ \hline
+\textbf{Criticality}        & High \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & failure to open view paths page. \\ \hline
+\textbf{Pre-Condition}      & user at home page. \\ \hline
+\textbf{Post-Condition}     & User at volunteering page. \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+
+\begin{table}[h!]
+\caption{Select volunteering path Function description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & selectVolunteeringPath \\ \hline
+\textbf{Description}        & The function takes the choice of the user on which path he wants to volunteer to and sends them to the appointments section.\\ \hline
+\textbf{Inputs}             & Event Listener for volunteering path button \\ \hline
+\textbf{Source}             & User presses on one of the volunteering path buttons. \\ \hline
+\textbf{Outputs}            & View appointments section \\ \hline
+\textbf{Destination}        & User interface. \\ \hline
+\textbf{Action}             & Open appointment section \\ \hline
+\textbf{Requirements}       & None \\ \hline
+\textbf{Criticality}        & High \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & failure to open appointment section \\ \hline
+\textbf{Pre-Condition}      & user at volunteering page. \\ \hline
+\textbf{Post-Condition}     & User at appointment section. \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+
+
+\begin{table}[h!]
+\caption{List all appointment days Function Description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & listAppointmentDays \\ \hline
+\textbf{Description}        & The function shows a list of available days for an appointment for the chosen volunteering path. \\ \hline
+\textbf{Inputs}             & user's volunteering choice \\ \hline
+\textbf{Source}             & appointment section is opened \\ \hline
+\textbf{Outputs}            & list of all available days for appointments \\ \hline
+\textbf{Destination}        & User interface. \\ \hline
+\textbf{Action}             & the function takes the user's choice on which path he wants to volunteer to and shows a list of all available days for an appointment to this path.\\ \hline
+\textbf{Requirements}       & volunteering path has appointment days \\ \hline
+\textbf{Criticality}        & High \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & wrong list of days. \\ \hline
+\textbf{Pre-Condition}      & empty appointment section \\ \hline
+\textbf{Post-Condition}     & appointment section with list of days \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+
+
+\begin{table}[h!]
+\caption{Book appointment Function Description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & bookAppoointment \\ \hline
+\textbf{Description}        & The function takes the day chosen by the user for an appointment. \\ \hline
+\textbf{Inputs}             & Event Listener for appointment day button \\ \hline
+\textbf{Source}             & user presses a day button \\ \hline
+\textbf{Outputs}            & popup alerting the user of his chosen day with a confirmation button. \\ \hline
+\textbf{Destination}        & User interface. \\ \hline
+\textbf{Action}             & the user chooses a day from the list of appointment days, upon choosing a popup appears with the chosen day and a confirmation button\\ \hline
+\textbf{Requirements}       & a day is chosen from the list \\ \hline
+\textbf{Criticality}        & High \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & None \\ \hline
+\textbf{Pre-Condition}      & a day is chosen \\ \hline
+\textbf{Post-Condition}     & appearance of popup \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+
+\begin{table}[h!]
+\caption{Confirm appointment Function Description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & confirmAppointment \\ \hline
+\textbf{Description}        & The function confirmAppointment takes the chosen day by the user and sends it to the admin. \\ \hline
+\textbf{Inputs}             & Event Listener for Confirmation button \\ \hline
+\textbf{Source}             & user presses on confirmation button \\ \hline
+\textbf{Outputs}            & popup alerting the user that his appointment is being reviewed by an admin, email to admin about the appointment information \\ \hline
+\textbf{Destination}        & User interface. \\ \hline
+\textbf{Action}             & the user presses on the confirmation button. upon pressing the function sends an email to the admin about the appointment and a popup for the user alerting him that his appointment is being reviewed by an admin\\ \hline
+\textbf{Requirements}       & None \\ \hline
+\textbf{Criticality}        & High \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & popup doesn't appear. email is not sent to admin. \\ \hline
+\textbf{Pre-Condition}      & popup of appointment confirmation \\ \hline
+\textbf{Post-Condition}     & popup of appointment being reviewed by admin \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+\begin{table}[h!]
+\caption{Cancel appointment Function Description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & cancelAppointment \\ \hline
+\textbf{Description}        & The function cancelAppointment sends an email to the admin informing him of the cancelation of the appointment. \\ \hline
+\textbf{Inputs}             & Event Listener for Cancel button \\ \hline
+\textbf{Source}             & user presses on cancel button \\ \hline
+\textbf{Outputs}            & popup alerting the user that his appointment is canceled \\ \hline
+\textbf{Destination}        & User interface. \\ \hline
+\textbf{Action}             & the user presses on the cancel button. upon pressing the function sends an email to the admin about the appointment being canceled and a popup for the user alerting him that his appointment is canceled\\ \hline
+\textbf{Requirements}       & None \\ \hline
+\textbf{Criticality}        & High \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & popup doesn't appear. email is not sent to admin. \\ \hline
+\textbf{Pre-Condition}      & cancel button at appointment page \\ \hline
+\textbf{Post-Condition}     & popup of appointment cancelation \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+\begin{table}[h!]
+\caption{Add user Function Description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & addUser \\ \hline
+\textbf{Description}        & The admin is able to add a user from the admin page. \\ \hline
+\textbf{Inputs}             & user information(Name,Age,Number.Email) \\ \hline
+\textbf{Source}             & admin adds a user through admin page \\ \hline
+\textbf{Outputs}            & A new user add to database \\ \hline
+\textbf{Destination}        & Users database. \\ \hline
+\textbf{Action}             & the admin enters the user information then presses on add user button. then a new user is add to the users database and a popup appears confirming that the user has been added.\\ \hline
+\textbf{Requirements}       & applicable user information  \\ \hline
+\textbf{Criticality}        & medium \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & user is not add to database \\ \hline
+\textbf{Pre-Condition}      & add user page \\ \hline
+\textbf{Post-Condition}     & popup confirming user is added successfully  \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+\begin{table}[h!]
+\caption{Delete user Function Description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & DeleteUser \\ \hline
+\textbf{Description}        & The admin is able to delete a user from the admin page. \\ \hline
+\textbf{Inputs}             & user information(Name,Age,Number.Email) \\ \hline
+\textbf{Source}             & admin deletes a user through admin page \\ \hline
+\textbf{Outputs}            & A user is deleted from database \\ \hline
+\textbf{Destination}        & Users database. \\ \hline
+\textbf{Action}             & the admin enters the user information then presses on delete user button. then the user is deleted from the users database if he exists and a popup appears confirming that the user has been deleted. if the user is not in the users database, a popup appears alerting the admin that the user does not exist \\ \hline
+\textbf{Requirements}       & user exists in database  \\ \hline
+\textbf{Criticality}        & medium \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & user is not deleted from database \\ \hline
+\textbf{Pre-Condition}      & delete user page \\ \hline
+\textbf{Post-Condition}     & popup confirming user is deleted successfully or does not exist  \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+\begin{table}[h!]
+\caption{Confirm volunteer appointment Function Description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & confirmVolunteerAppointment \\ \hline
+\textbf{Description}        & The admin confirms the volunteer's appointment after receiving the appointment email and an email is sent to the volunteer automatically and adds the appointment to the appointments database. \\ \hline
+\textbf{Inputs}             & volunteer information (Name, Age, Number, Email) \\ \hline
+\textbf{Source}             & admin recives an appointment email \\ \hline
+\textbf{Outputs}            & email sent to volunteer confirming his appointment and appointment add to database \\ \hline
+\textbf{Destination}        & volunteer's email \\ \hline
+\textbf{Action}             & the admin receives a volunteer's appointment email, the admin then confirms the appointment which calls this function sending an email automatically to the volunteer informing him that the appointment is confirmed and adds the appointment to the appointments database.\\ \hline
+\textbf{Requirements}       & Admin receives an appointment email  \\ \hline
+\textbf{Criticality}        & High \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & confirmation Eamil is not sent, appointment is not add to database \\ \hline
+\textbf{Pre-Condition}      & appointment email \\ \hline
+\textbf{Post-Condition}     & Confirmation email \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+\begin{table}[h!]
+\caption{Add Admin Function Description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & addAdmin \\ \hline
+\textbf{Description}        & The admin is able to add an admin from the admin page. \\ \hline
+\textbf{Inputs}             & Admin information(Name,Age,Number.Email) \\ \hline
+\textbf{Source}             & admin adds an admin through admin page \\ \hline
+\textbf{Outputs}            & A new admin add to database \\ \hline
+\textbf{Destination}        & Admins database. \\ \hline
+\textbf{Action}             & the admin enters the new admins information then presses on add admin button. then a new admin is add to the admins database and a popup appears confirming that the admin has been added.\\ \hline
+\textbf{Requirements}       & applicable admin information  \\ \hline
+\textbf{Criticality}        & medium \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & admin is not add to database \\ \hline
+\textbf{Pre-Condition}      & add admin page \\ \hline
+\textbf{Post-Condition}     & popup confirming admin is added successfully  \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+\begin{table}[h!]
+\caption{View all appointments Function Description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & viewAppointments \\ \hline
+\textbf{Description}        & The function shows a all  appointments confirmed by the admin through the view appointments page open only for admins. \\ \hline
+\textbf{Inputs}             & None \\ \hline
+\textbf{Source}             & view appointments page  \\ \hline
+\textbf{Outputs}            & list of all appointments confirmed by the admin \\ \hline
+\textbf{Destination}        & admin page. \\ \hline
+\textbf{Action}             & the function takes all appointments inside the appointmsnts database and shows them to the admin through the view appointments page.\\ \hline
+\textbf{Requirements}       & None \\ \hline
+\textbf{Criticality}        & Medium \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & appointments do not appear. \\ \hline
+\textbf{Pre-Condition}      & empty view appointments page \\ \hline
+\textbf{Post-Condition}     & appointments page with list of all appointments confirmed \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+
+\begin{table}[h!]
+\caption{View all users Function Description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & viewUsers \\ \hline
+\textbf{Description}        & The function shows a all users registered through view users page open only for admins. \\ \hline
+\textbf{Inputs}             & None \\ \hline
+\textbf{Source}             & view users page  \\ \hline
+\textbf{Outputs}            & list of all users registered \\ \hline
+\textbf{Destination}        & admin page. \\ \hline
+\textbf{Action}             & the function takes all users inside the users database and shows them to the admin through the view users page.\\ \hline
+\textbf{Requirements}       & None \\ \hline
+\textbf{Criticality}        & Medium \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & Users do not appear. \\ \hline
+\textbf{Pre-Condition}      & empty view users page \\ \hline
+\textbf{Post-Condition}     & Users page with list of all users registered \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+\begin{table}[h!]
+\caption{Confirm physical donation Function Description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & confirmPhysicalDonation \\ \hline
+\textbf{Description}        & The admin confirms the physical donation (clothes,food) after
+receiving the donation email and an email is sent to the user automatically informing them that they will receive the donation. \\ \hline
+\textbf{Inputs}             & donation email \\ \hline
+\textbf{Source}             & admin receives a donation email \\ \hline
+\textbf{Outputs}            & email sent to user confirming his donation is appreciated and will be received \\ \hline
+\textbf{Destination}        & user's email \\ \hline
+\textbf{Action}             & the admin receives a donation email, the admin then confirms the donation which calls this function sending an email automatically to the user informing him that the donation is appreciated and will be received.\\ \hline
+\textbf{Requirements}       & Admin receives a donation email  \\ \hline
+\textbf{Criticality}        & High \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & confirmation Eamil is not sent. \\ \hline
+\textbf{Pre-Condition}      & donation email \\ \hline
+\textbf{Post-Condition}     & Confirmation email \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+\begin{table}[h!]
+\caption{Register Function Description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & Register \\ \hline
+\textbf{Description}        & The function allows a user to register to the system. \\ \hline
+\textbf{Inputs}             & user information (Name,Age,Number.Email,Password) \\ \hline
+\textbf{Source}             & Sign in page  \\ \hline
+\textbf{Outputs}            & A new user is add to the users database, a popup confirming success or failure of registration. \\ \hline
+\textbf{Destination}        & sign in page. \\ \hline
+\textbf{Action}             & the function takes the information entered by the user. if the information is applicable, a new user is add to the users database then a popup appears confirming a successful registration and redirects the user to sign in page, and if information is not applicable then a popup appears informing of the failure of registration.\\ \hline
+\textbf{Requirements}       & user enters information \\ \hline
+\textbf{Criticality}        & Low \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & User is not add to Users database, popup doesn't appear. \\ \hline
+\textbf{Pre-Condition}      & user registers his account \\ \hline
+\textbf{Post-Condition}     & user redirected to sign in page if successful registration. \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+\begin{table}[h!]
+\caption{SignIn Function Description}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\small
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Function Name}      & SignIn \\ \hline
+\textbf{Description}        & The function signs in a user or an admin if they exist. \\ \hline
+\textbf{Inputs}             &  information (Email,Password) \\ \hline
+\textbf{Source}             & Sign in page  \\ \hline
+\textbf{Outputs}            & success or failure of signing in. \\ \hline
+\textbf{Destination}        & sign in page. \\ \hline
+\textbf{Action}             & the function takes the information entered by the user or admin. if they exist then sign in is successful if not then a popup appears informing them that they need to register first.\\ \hline
+\textbf{Requirements}       & information is entered \\ \hline
+\textbf{Criticality}        & Low \\ \hline
+\textbf{Side effects}   &   None\\ \hline
+\textbf{Risks}              & Unable to sing in. \\ \hline
+\textbf{Pre-Condition}      & User or admin enters his account \\ \hline
+\textbf{Post-Condition}     & user redirected to home page if successful signin. \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+\section{Interface Requirements}
+This section describes how the software interfaces with other software products or users for input or output. Examples of such interfaces include library routines, token streams, shared memory, data streams, and so forth. 
+\subsection{User Interfaces}
+Use some software for primitive plan of your project.
+Describes how this product interfaces with the user. 
+\subsubsection {GUI}
+{\includegraphics[width=15cm, height=20cm]{1f354276-35cc-4616-8a22-69e663c01f73.jpg}
+}
+\\ \\
+{\includegraphics[width=15cm, height=20cm]{1fbc78c6-612d-4126-af65-13a7ef99a30c.jpg}
+}
+\\ \\ 
+{\includegraphics[width=15cm, height=20cm]{f4ee178a-766c-425b-a187-92cb391cc7f6.jpg}
+}
+\\ \\ 
+{\includegraphics[width=15cm, height=20cm]{4d65eb08-04a9-4449-b251-03bcb7415163.jpg}
+}
+
+
+
+
+
+\subsubsection {API}
+Describes the application programming interface, if present. For each public interface function, the name, arguments, return values, examples of invocation, and interactions with other functions should be provided. 
+
+
+\subsection{Hardware Interfaces}
+Describes interfaces to hardware devices.
+\subsection{Communications Interfaces}
+Describes network interfaces. 
+\subsection{Software Interfaces}
+Describes any remaining software interfaces not included above.
+\section{Design Constraints}
+Specifies any constraints for the design team using this document. 
+\subsection{ Standards Compliance}
+\subsection{ Hardware Limitations}
+\subsection{ others as appropriate}
+
+\section{Non-functional Requirements}
+\subsection {Security}
+In order to uphold the highest standards of privacy and data security, access to personal information of individual users is restricted to designated administrators only. Users are expressly prohibited from viewing or accessing personal details of fellow users. This measure ensures the confidentiality and integrity of sensitive information. A functional requirement named restrictUserPersonalInfoAccess(accessLevel) that will check the user's access level to either hide other users' information or not. 
+\subsection {Compatibility}
+The system should be compatible with different devices(mobile phone, computers, tablets). This will be implemented by insuring that bootstrap is used in all pages.
+\subsection {Accessibility}
+System should comply with disability regulations. This will be applied by integrating "text-to-speech".
+\subsection {Availability}
+The system should be accessible for as long as possible and upon failure messages should be sent ensuring that the staff are aware of this failure and measures are taken. This will be implemented by using the functional requirement alertSystemFailure(responseError).
+\section{Preliminary Object-Oriented Domain Analysis}
+This section presents a list of the fundamental objects that must be modeled within the system to satisfy its requirements. The purpose is to provide an alternative, ''structural'' view on the requirements stated above and how they might be satisfied in the system. A primitive class diagram to be delivered.
+\subsection{Inheritance Relationships}
+This section should contain a set of graphs that illustrate the primary inheritance hierarchy (is-kind-of) for the system. For example: 
+
+\begin{figure}[tbh]
+\centering
+\includegraphics[width=0.7\linewidth]{./image}
+\caption{Inheritance Relations}
+\label{fig:image}
+\end{figure}
+\subsection{Class descriptions}
+This section presents a more detailed description of each class identified during the OO Domain Analysis. For more details on the process giving rise to these descriptions, see Lecture 5.3: OO Domain Analysis and/or texts on object-oriented software development. 
+Each class description should conform to the following structure: 
+\subsubsection{ Class name}
+ Abstract or Concrete: 
+Indicates whether this class is abstract or concrete. 
+\subsubsection {List of Superclasses:} 
+Names all immediate superclasses. 
+\subsubsection {List of Subclasses:} 
+Names all immediate subclasses. 
+\subsubsection {Purpose: }
+States the basic purpose of the class. 
+\subsubsection {Collaborations: }
+Names each class with which this class must interact in order to accomplish its purpose, and how. 
+\subsubsection {Attributes: }
+Lists each attribute (state variable) associated with each instance of this class, and indicates examples of possible values (or a range). 
+\subsubsection {Operations}: 
+Lists each operation that can be invoked upon instances of this class. For each operation, the arguments (and their type), the return value (and its type), and any side effects of the operation should be specified. 
+\subsubsection {Constraints:} 
+Lists any restrictions upon the general state or behavior of instances of this class. 
+
+\section{Operational Scenarios}
+This section should describe a set of scenarios that illustrate, from the user's perspective, what will be experienced when utilizing the system under various situations. 
+In the article Inquiry-Based Requirements Analysis (IEEE Software, March 1994), scenarios are defined as follows: 
+In the broad sense, a scenario is simply a proposed specific use of the system. More specifically, a scenario is a description of one or more end-to-end transactions involving the required system and its environment. Scenarios can be documented in different ways, depending up on the level of detail needed. The simplest form is a use case, which consists merely of a short description with a number attached. More detailed forms are called scripts. These are usually represented as tables or diagrams and involved identifying an action and the agent (doer) of the action. For this reason, a script can also be called an action table. 
+Although scenarios are useful in acquiring and validating requirements, they are not themselves requirements, because the describe the system's behavior only in specific situations; a specification, on the other hand, describes what the system should do in general. 
+
+\section{Preliminary Schedule Adjusted}
+This section provides an initial version of the project plan, including the major tasks to be accomplished, their interdependence's, and their tentative start/stop dates. The plan also includes information on hardware, software, and  resource requirements. 
+The project plan should be accompanied by one or more PERT or GANTT charts. 
+\section{Preliminary Budget Adjusted}
+This section provides an initial budget for the project, itemized by cost factor. 
+\section{Appendices}
+Specifies other useful information for understanding the requirements. All SRS documents should include at least the following two appendices: 
+\subsection{Definitions, Acronyms, Abbreviations}
+Provides definitions of unfamiliar definitions, terms, and acronyms. 
+\subsection{Collected material}
+
+\section {References}
+\bibliographystyle{IEEEtranS}
+
+\bibliography{dissertationbib}
+
+\end{document}
